@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Making &amp; MINT in der Schule – Handout</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600;700&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --dark-bg: #0f1b2d;
+    --dark-bg2: #162032;
+    --teal: #1a7a6e;
+    --teal-light: #2ab7a4;
+    --teal-circle: #1d4f4a;
+    --yellow: #f5c842;
+    --text-light: #e8edf4;
+    --text-muted: #a0b0c8;
+    --card-border: rgba(255,255,255,0.12);
+    --section-label: #4fc3b0;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f0f2f5;
+    color: #1a1a2e;
+    padding: 24px 16px;
+  }
+
+  .handout-header {
+    text-align: center;
+    margin-bottom: 28px;
+    padding: 10px 0 14px;
+    border-bottom: 2px solid #c0c8d8;
+  }
+  .handout-header h1 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #6b7a99;
+    font-weight: 600;
+  }
+
+  /* ── SLIDE WRAPPER ── */
+  .slide {
+    border-radius: 14px;
+    overflow: hidden;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.18);
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* ── SLIDE 1 – dark ── */
+  .slide-1 {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    padding: 36px 44px 30px;
+    position: relative;
+    min-height: 200px;
+  }
+  .slide-1 .circle-deco {
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 260px; height: 260px;
+    border-radius: 50%;
+    border: 3px solid var(--teal-circle);
+    opacity: .55;
+    pointer-events: none;
+  }
+  .slide-1 .section-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--section-label);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .slide-1 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    line-height: 1.1;
+    margin-bottom: 22px;
+    max-width: 580px;
+  }
+  .slide-1 .meta {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 18px;
+  }
+  .pill-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  .pill {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--card-border);
+    border-radius: 8px;
+    padding: 7px 16px;
+    font-size: 13px;
+  }
+  .quote-box {
+    border: 1.5px solid var(--yellow);
+    border-radius: 10px;
+    padding: 12px 18px;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--text-light);
+    max-width: 560px;
+  }
+
+  /* ── SLIDE 2 – dark ── */
+  .slide-2 {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    padding: 32px 40px 28px;
+    position: relative;
+  }
+  .slide-2 .circle-deco {
+    position: absolute;
+    bottom: -80px; right: -70px;
+    width: 240px; height: 240px;
+    border-radius: 50%;
+    border: 3px solid var(--teal-circle);
+    opacity: .4;
+    pointer-events: none;
+  }
+  .cards-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 18px;
+  }
+  .card-dark {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .card-dark .card-icon { font-size: 22px; margin-bottom: 6px; }
+  .card-dark .card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #4fc3b0;
+    margin-bottom: 6px;
+  }
+  .card-dark .card-body { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+  /* ── SLIDE 3 – light ── */
+  .slide-3 {
+    background: #eef2f8;
+    color: #1a1a2e;
+    padding: 32px 40px 28px;
+  }
+  .slide-3 .section-label {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: #7a8aaa;
+    margin-bottom: 10px;
+  }
+  .slide-3 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; margin-bottom: 22px;
+  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    position: relative;
+    padding-bottom: 18px;
+  }
+  .timeline-item:last-child { padding-bottom: 0; }
+  .tl-icon-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 40px;
+  }
+  .tl-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: #e0e8f5;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .tl-line {
+    width: 2px; flex: 1; background: #c8d4e8;
+    min-height: 22px; margin-top: 4px;
+  }
+  .tl-text { padding-top: 4px; }
+  .tl-label {
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; color: #7a8aaa;
+    margin-bottom: 2px;
+  }
+  .tl-value { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+
+  .teacher-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-size: 13px;
+  }
+  .teacher-card .tc-label {
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; color: #7a8aaa;
+    margin-bottom: 12px;
+  }
+  .tc-item {
+    display: flex; align-items: center;
+    gap: 10px; padding: 7px 12px;
+    border-radius: 8px; margin-bottom: 6px;
+    font-weight: 600; font-size: 13px;
+  }
+  .tc-green { background: #d4f4e8; color: #1a6644; }
+  .tc-yellow { background: #fef9d4; color: #7a6010; }
+  .tc-pink   { background: #fde8ec; color: #8a1c30; }
+  .tc-blue   { background: #e4edfd; color: #1c3a8a; }
+
+  .stat-box-dark {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex; align-items: center; gap: 14px;
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  .stat-number {
+    font-size: 36px; font-weight: 700;
+    color: var(--yellow); line-height: 1;
+    flex-shrink: 0;
+  }
+  .stat-text { font-size: 13px; color: var(--text-muted); }
+  .stat-text a { color: var(--text-muted); text-decoration: underline; }
+
+  /* ── SLIDE 4 – light ── */
+  .slide-4 {
+    background: #f7f3ef;
+    color: #1a1a2e;
+    padding: 32px 40px 28px;
+  }
+  .slide-4 .section-label {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: #d07070;
+    margin-bottom: 10px;
+  }
+  .slide-4 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px; margin-bottom: 22px;
+  }
+  .pill-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .pill-red  { background: #fce8e8; border-radius: 30px; padding: 8px 16px; font-size: 14px; font-weight: 600; color: #a02020; text-align: center; }
+  .pill-green{ background: #d8f5e8; border-radius: 30px; padding: 8px 16px; font-size: 14px; font-weight: 600; color: #1a6a40; text-align: center; }
+  .pill-blue { background: #dce8fd; border-radius: 30px; padding: 8px 16px; font-size: 14px; font-weight: 600; color: #1a3a8a; text-align: center; }
+  .quote-light {
+    background: #fef9d8; border: 1px solid #f0de80;
+    border-radius: 10px; padding: 10px 16px;
+    font-style: italic; font-size: 13px; color: #6a5a10;
+    margin-top: 6px;
+  }
+  .fourk-box {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    border-radius: 12px; padding: 20px 22px;
+  }
+  .fourk-box .fk-label {
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; color: #4fc3b0;
+    margin-bottom: 8px;
+  }
+  .fourk-box .fk-title { font-weight: 700; font-size: 15px; margin-bottom: 12px; }
+  .fourk-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-bottom: 14px;
+  }
+  .fk-card {
+    border-radius: 8px; padding: 10px 14px;
+    font-size: 13px; font-weight: 600;
+  }
+  .fk-green  { border: 1.5px solid #2a8a70; color: #4fc3b0; background: transparent; }
+  .fk-blue   { border: 1.5px solid #2a4a9a; color: #7aa4ef; background: transparent; }
+  .fk-yellow { border: 1.5px solid #a08000; color: #d4aa30; background: transparent; }
+  .fk-pink   { border: 1.5px solid #8a2060; color: #d47ab0; background: transparent; }
+
+  .vs-label {
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; color: #8090b0;
+    margin-bottom: 10px;
+  }
+  .vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+  .vs-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-muted); }
+
+  /* ── SLIDE 5 – light ── */
+  .slide-5 {
+    background: #f5f8ff;
+    color: #1a1a2e;
+    padding: 32px 40px 28px;
+  }
+  .slide-5 .section-label {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: #4070c0;
+    margin-bottom: 10px;
+  }
+  .slide-5 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; margin-bottom: 20px;
+  }
+  .prob-sol {
+    display: grid; grid-template-columns: 1fr 40px 1fr; gap: 0;
+    align-items: center; margin-bottom: 20px;
+  }
+  .prob-box {
+    background: #fce8ec; border-radius: 12px; padding: 18px 20px;
+  }
+  .prob-box .pb-title { font-size: 15px; font-weight: 700; color: #c02030; margin-bottom: 10px; }
+  .sol-box {
+    background: #d8f5e8; border-radius: 12px; padding: 18px 20px;
+  }
+  .sol-box .pb-title { font-size: 15px; font-weight: 700; color: #1a6040; margin-bottom: 10px; }
+  .ps-list { list-style: none; padding: 0; }
+  .ps-list li { font-size: 13px; color: #2a2a4a; padding: 3px 0; }
+  .ps-list li::before { content: "•"; margin-right: 8px; }
+  .arrow-mid { font-size: 28px; text-align: center; color: #8090b0; }
+
+  .labs-label {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: #4070c0;
+    margin-bottom: 10px;
+  }
+  .labs-grid {
+    display: grid; grid-template-columns: repeat(4,1fr); gap: 8px;
+    margin-bottom: 14px;
+  }
+  .lab-pill {
+    border: 1.5px solid #4070c0; border-radius: 10px;
+    padding: 10px 10px; text-align: center;
+    font-size: 13px; font-weight: 600; color: #2050a0;
+  }
+  .partners-row { font-size: 12px; color: #5060a0; line-height: 1.7; }
+
+  /* ── SLIDE 6 – dark ── */
+  .slide-6 {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    padding: 32px 40px 28px;
+    position: relative;
+  }
+  .slide-6 .circle-deco {
+    position: absolute; top: -60px; right: -60px;
+    width: 240px; height: 240px;
+    border-radius: 50%; border: 3px solid var(--teal-circle);
+    opacity: .4; pointer-events: none;
+  }
+  .url-box {
+    display: inline-block;
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid var(--yellow);
+    border-radius: 10px; padding: 10px 22px;
+    font-size: 17px; font-weight: 700;
+    color: var(--yellow); text-decoration: none;
+    margin-bottom: 22px;
+  }
+  .plat-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 10px;
+    margin-bottom: 14px;
+  }
+  .plat-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 14px 16px;
+  }
+  .plat-card .pc-icon { font-size: 22px; margin-bottom: 6px; }
+  .plat-card .pc-title { font-size: 14px; font-weight: 700; color: #4fc3b0; margin-bottom: 4px; }
+  .plat-card .pc-body  { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+  .plat-footer { font-size: 12px; color: var(--text-muted); }
+
+  /* ── SLIDE 7 – light ── */
+  .slide-7 {
+    background: #f8fafb;
+    color: #1a1a2e;
+    padding: 32px 40px 28px;
+  }
+  .slide-7 .section-label {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: #5a8a70;
+    margin-bottom: 10px;
+  }
+  .slide-7 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px; margin-bottom: 20px;
+  }
+  .tu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .tu-card {
+    border-radius: 12px; padding: 20px 22px;
+  }
+  .tu-navy { background: #1e3050; color: #e0e8f8; }
+  .tu-teal { background: #1a7a6e; color: #e0f4f0; }
+  .tu-card .tc2-label {
+    font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
+    opacity: .7; margin-bottom: 8px;
+  }
+  .tu-card .tc2-title { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+  .tu-card ul { padding-left: 18px; font-size: 13px; line-height: 2; }
+  .tu-footer {
+    background: #e8f5e0; border: 1px solid #b0d8a0;
+    border-radius: 10px; padding: 12px 20px;
+    text-align: center; font-size: 14px; color: #2a6020;
+    font-weight: 500;
+  }
+
+  /* ── SLIDE 8 – dark ── */
+  .slide-8 {
+    background: var(--dark-bg);
+    color: var(--text-light);
+    padding: 32px 40px 28px;
+    position: relative;
+  }
+  .slide-8 .circle-deco {
+    position: absolute; bottom: -80px; right: -70px;
+    width: 240px; height: 240px;
+    border-radius: 50%; border: 3px solid var(--teal-circle);
+    opacity: .4; pointer-events: none;
+  }
+  .slide-8 .section-label {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: #f5c842;
+    margin-bottom: 10px;
+  }
+  .slide-8 h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px; line-height: 1.15; margin-bottom: 8px;
+  }
+  .fazit-sub {
+    font-size: 17px; font-weight: 700; color: #4fc3b0; margin-bottom: 22px;
+  }
+  .fazit-grid {
+    display: grid; grid-template-columns: repeat(3,1fr); gap: 10px;
+  }
+  .fazit-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--card-border);
+    border-radius: 10px; padding: 16px 18px;
+    font-size: 13px;
+  }
+  .fazit-card .fc-icon { font-size: 22px; margin-bottom: 8px; }
+  .fazit-card .fc-title { font-weight: 700; color: var(--text-light); margin-bottom: 4px; font-size: 14px; }
+  .fazit-card .fc-sub   { font-size: 12px; color: var(--text-muted); }
+  .fazit-card a { color: #4fc3b0; text-decoration: none; }
+  .slide-8 .footer-names {
+    margin-top: 20px; font-size: 12px; color: var(--text-muted); text-align: center;
+  }
+
+  /* ── Shared section label for dark slides ── */
+  .section-label-dark {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--section-label);
+    margin-bottom: 12px;
+  }
+  .slide-h2-dark {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px; line-height: 1.15; margin-bottom: 20px;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .slide { box-shadow: none; border: 1px solid #ddd; }
+    @page { margin: 15mm; }
+  }
+</style>
+</head>
+<body>
+
+<div class="handout-header">
+  <h1>Handout &nbsp;·&nbsp; Making &amp; MINT in der Schule &nbsp;·&nbsp; mbs.tsn.at · MINT2Go</h1>
+</div>
+
+<!-- ══════════ SLIDE 1 ══════════ -->
+<div class="slide slide-1">
+  <div class="circle-deco"></div>
+  <div class="section-label">H L G &nbsp; M a k i n g &nbsp; i n &nbsp; d e r &nbsp; S c h u l e</div>
+  <h2>Making &amp; MINT<br>in der Schule</h2>
+  <div class="meta">mbs.tsn.at &nbsp;·&nbsp; MINT2Go</div>
+  <div class="pill-row">
+    <div class="pill">👨‍🏫 Andreas Schiestl</div>
+    <div class="pill">👨‍💻 Michael Konrad</div>
+    <div class="pill">📍 Tirol</div>
+  </div>
+  <div class="quote-box">„Die kreativste Versuchung, seit es Hochschullehrgänge gibt." 😄</div>
+</div>
+
+<!-- ══════════ SLIDE 2 ══════════ -->
+<div class="slide slide-2">
+  <div class="circle-deco"></div>
+  <div class="section-label-dark">D I E &nbsp; I D E E</div>
+  <div class="slide-h2-dark">Making für alle<br>zugänglich machen</div>
+  <div class="cards-2x2">
+    <div class="card-dark">
+      <div class="card-icon">🎯</div>
+      <div class="card-title">Ziel</div>
+      <div class="card-body">Niederschwelliger Einstieg<br>für Lehrpersonen &amp; Kinder</div>
+    </div>
+    <div class="card-dark">
+      <div class="card-icon">🌍</div>
+      <div class="card-title">Plattform</div>
+      <div class="card-body">mbs.tsn.at</div>
+    </div>
+    <div class="card-dark">
+      <div class="card-icon">🛠️</div>
+      <div class="card-title">Inhalte</div>
+      <div class="card-body">Tutorials &amp;<br>Starters</div>
+    </div>
+    <div class="card-dark">
+      <div class="card-icon">🤝</div>
+      <div class="card-title">Ursprung</div>
+      <div class="card-body">2 DigiMINT Coaches<br>+ 1 packender Vortrag</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 3 ══════════ -->
+<div class="slide slide-3">
+  <div class="section-label">U N S E R &nbsp; W E G</div>
+  <h2>Vom Chaos zur Klarheit 🧭</h2>
+  <div class="two-col">
+    <!-- Timeline -->
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-icon-wrap">
+          <div class="tl-icon">🎤</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">A U S L Ö S E R</div>
+          <div class="tl-value">Vortrag Edudays Krems → Feuer!</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-icon-wrap">
+          <div class="tl-icon">🏫</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">L E H R G A N G</div>
+          <div class="tl-value">HLG Making → PH Niederösterreich</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-icon-wrap">
+          <div class="tl-icon">🔍</div>
+          <div class="tl-line"></div>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">O R I E N T I E R U N G</div>
+          <div class="tl-value">MINT-Fokus → Making als idealer Boden</div>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-icon-wrap">
+          <div class="tl-icon">🚀</div>
+        </div>
+        <div class="tl-text">
+          <div class="tl-label">E R G E B N I S</div>
+          <div class="tl-value">Plattform + mobiles Labor → live!</div>
+        </div>
+      </div>
+    </div>
+    <!-- Right column -->
+    <div>
+      <div class="teacher-card">
+        <div class="tc-label">A U S &nbsp; D E M &nbsp; L E H R E R Z I M M E R 😄</div>
+        <div class="tc-item tc-green">✅ Steckdose gefunden</div>
+        <div class="tc-item tc-yellow">🖨️ Drucker läuft (meistens)</div>
+        <div class="tc-item tc-pink">❓ Kinder fragen ALLES</div>
+        <div class="tc-item tc-blue">😮 3D-Druck → Wow-Effekt</div>
+      </div>
+      <div class="stat-box-dark">
+        <div class="stat-number">14</div>
+        <div class="stat-text"><a href="https://digicoaching.tibs.at/" target="_blank" style="color:inherit;text-decoration:underline;">DigiMINT Coaches</a> · kostenlos<br>Direkt in die Schule!</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 4 ══════════ -->
+<div class="slide slide-4">
+  <div class="section-label">P R O B L E M A N A L Y S E</div>
+  <h2>Lehrplan NEU: Was fehlt?</h2>
+  <div class="two-col">
+    <div>
+      <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#8a7060;margin-bottom:10px;">I m &nbsp; L e h r p l a n &nbsp; N E U &nbsp; ( a b &nbsp; 1 . 9 . 2 0 2 5 ) &nbsp; …</div>
+      <div class="pill-grid">
+        <div class="pill-red">❌ Making</div>
+        <div class="pill-red">❌ Laser-Cutter</div>
+        <div class="pill-red">❌ 3D-Druck</div>
+        <div class="pill-green">✅ Lötkolben</div>
+        <div class="pill-green">✅ Microcomputer</div>
+        <div class="pill-blue">✅ 4K-Modell</div>
+      </div>
+      <div class="quote-light">„Lehrplan ≠ Making 😅 — aber fast!"</div>
+    </div>
+    <div class="fourk-box">
+      <div class="fk-label">D A S &nbsp; 4 K - M O D E L L</div>
+      <div class="fk-title">Making erfüllt es perfekt 💯</div>
+      <div class="fourk-grid">
+        <div class="fk-card fk-green">Kommunikation</div>
+        <div class="fk-card fk-blue">Kollaboration</div>
+        <div class="fk-card fk-yellow">Kreativität</div>
+        <div class="fk-card fk-pink">Kritisches Denken</div>
+      </div>
+      <div class="vs-label">K l a s s i s c h &nbsp; v s . &nbsp; M a k i n g</div>
+      <div class="vs-grid">
+        <div class="vs-item">📖 Frontalunterricht</div>
+        <div class="vs-item">🔨 Hands-on</div>
+        <div class="vs-item">🪑 Passiv sitzen</div>
+        <div class="vs-item">🚀 Aktiv &amp; neugierig</div>
+        <div class="vs-item">📝 Ein richtiger Weg</div>
+        <div class="vs-item">🌿 Viele Wege möglich</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 5 ══════════ -->
+<div class="slide slide-5">
+  <div class="section-label">D A S &nbsp; P R O J E K T</div>
+  <h2>MINT2Go – Das Labor kommt zu euch 🚐</h2>
+  <div class="prob-sol">
+    <div class="prob-box">
+      <div class="pb-title">❌ Problem</div>
+      <ul class="ps-list">
+        <li>Labor zu weit weg</li>
+        <li>ÖPNV schwierig</li>
+        <li>1 Besuch = zu wenig</li>
+        <li>Volksschule benachteiligt</li>
+      </ul>
+    </div>
+    <div class="arrow-mid">→</div>
+    <div class="sol-box">
+      <div class="pb-title">✅ Lösung</div>
+      <ul class="ps-list">
+        <li>Labor kommt in die Schule</li>
+        <li>2 Wochen Unterricht</li>
+        <li>Coach schult ein</li>
+        <li>Danach eigenständig!</li>
+      </ul>
+    </div>
+  </div>
+  <div class="labs-label">D I E &nbsp; 4 &nbsp; M O B I L E N &nbsp; L A B O R E</div>
+  <div class="labs-grid">
+    <div class="lab-pill">🖨️ 3D-Druck</div>
+    <div class="lab-pill">⚡ Prototyping</div>
+    <div class="lab-pill">🤖 Coding Primarstufe</div>
+    <div class="lab-pill">🧠 Coding + KI</div>
+  </div>
+  <div class="partners-row">
+    🏫 <strong>Partnerschulen:</strong> VS Kufstein Zell · VS Kufstein Stadt · VS Erl · VS Kundl · MS Ebbs<br>
+    🏭 <strong>Partnerbetriebe:</strong> Kontron · 3con · Kufgem · STIHL · SENN Gruppe &nbsp;|&nbsp; 💰 Finanziert über LEADER-Projekt
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 6 ══════════ -->
+<div class="slide slide-6">
+  <div class="circle-deco"></div>
+  <div class="section-label-dark">D I E &nbsp; P L A T T F O R M</div>
+  <div class="slide-h2-dark">Die Wissensdrehscheibe 🌐</div>
+  <a href="https://www.mbs.tsn.at" class="url-box" target="_blank">www.mbs.tsn.at</a>
+  <div class="plat-grid">
+    <div class="plat-card">
+      <div class="pc-icon">📚</div>
+      <div class="pc-title">Tutorials</div>
+      <div class="pc-body">Für Lehrpersonen<br>Fortbildung &amp; Recherche</div>
+    </div>
+    <div class="plat-card">
+      <div class="pc-icon">▶️</div>
+      <div class="pc-title">Starters</div>
+      <div class="pc-body">Fertige Unterrichtsstunden<br>direkt nutzbar</div>
+    </div>
+    <div class="plat-card">
+      <div class="pc-icon">📅</div>
+      <div class="pc-title">Workshops</div>
+      <div class="pc-body">Buchungsplattform<br>MINT-Labs Schwaz</div>
+    </div>
+    <div class="plat-card">
+      <div class="pc-icon">📤</div>
+      <div class="pc-title">Export</div>
+      <div class="pc-body">YAML-Export → eigene<br>Homepage in Klicks</div>
+    </div>
+    <div class="plat-card">
+      <div class="pc-icon">🖼️</div>
+      <div class="pc-title">Galerie</div>
+      <div class="pc-body">Inspiration für<br>den eigenen Unterricht</div>
+    </div>
+    <div class="plat-card">
+      <div class="pc-icon">🔒</div>
+      <div class="pc-title">Datensicher</div>
+      <div class="pc-body">DVT-Tirol Server<br>Daten bleiben in Tirol</div>
+    </div>
+  </div>
+  <div class="plat-footer">🛡️ TSN-Web · DVT Tirol GmbH &nbsp;·&nbsp; 🏫 Jede Tiroler Schule kann mitmachen</div>
+</div>
+
+<!-- ══════════ SLIDE 7 ══════════ -->
+<div class="slide slide-7">
+  <div class="section-label">D I E &nbsp; I N H A L T E</div>
+  <h2>Tutorials &amp; Starters 📚</h2>
+  <div class="tu-grid">
+    <div class="tu-card tu-navy">
+      <div class="tc2-label">F Ü R &nbsp; L E H R P E R S O N E N</div>
+      <div class="tc2-title">Tutorials</div>
+      <ul>
+        <li>Geräte-Übersichten &amp; Links</li>
+        <li>Fortbildung &amp; Recherche</li>
+        <li>Galerie mit Projektideen</li>
+        <li>Community-Wachstum</li>
+        <li>Wissen auf Knopfdruck</li>
+      </ul>
+    </div>
+    <div class="tu-card tu-teal">
+      <div class="tc2-label">F Ü R &nbsp; D E N &nbsp; U N T E R R I C H T</div>
+      <div class="tc2-title">Starters</div>
+      <ul>
+        <li>Schritt-für-Schritt für Kinder</li>
+        <li>Videos &amp; Anleitungen inkl.</li>
+        <li>Schulstufe 1–8 abgedeckt</li>
+        <li>Fast alle Fächer! (Sport: naja 😄)</li>
+        <li>Importierbar per Klick</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tu-footer">Tutorials liefern Wissen &nbsp;→&nbsp; Starters bieten Anwendung</div>
+</div>
+
+<!-- ══════════ SLIDE 8 ══════════ -->
+<div class="slide slide-8">
+  <div class="circle-deco"></div>
+  <div class="section-label">F A Z I T</div>
+  <h2>Gute Ideen sollen<br>Schule machen 🏆</h2>
+  <div class="fazit-sub">Making + Lehrplan NEU = ❤️</div>
+  <div class="fazit-grid">
+    <div class="fazit-card">
+      <div class="fc-icon">🎯</div>
+      <div class="fc-title">4K-Modell</div>
+      <div class="fc-sub">gelebter Alltag</div>
+    </div>
+    <div class="fazit-card">
+      <div class="fc-icon">🌐</div>
+      <div class="fc-title"><a href="https://mbs.tsn.at" target="_blank">mbs.tsn.at</a></div>
+      <div class="fc-sub">offen für alle</div>
+    </div>
+    <div class="fazit-card">
+      <div class="fc-icon">🚐</div>
+      <div class="fc-title">MINT2Go</div>
+      <div class="fc-sub">kommt zu euch</div>
+    </div>
+    <div class="fazit-card">
+      <div class="fc-icon">🔓</div>
+      <div class="fc-title">OER-Lizenz</div>
+      <div class="fc-sub">frei verfügbar</div>
+    </div>
+    <div class="fazit-card">
+      <div class="fc-icon">🤑</div>
+      <div class="fc-title">Förderungen</div>
+      <div class="fc-sub"><a href="https://www.imst.ac.at/" target="_blank" style="color:inherit;text-decoration:underline;">IMST</a> · <a href="https://www.leaderforum.at/was-ist-leader" target="_blank" style="color:inherit;text-decoration:underline;">Leader – EU</a> · <a href="https://www.ffg.at/talente-regional/kooperationszuschuss" target="_blank" style="color:inherit;text-decoration:underline;">FFG Kooperationszuschuss</a></div>
+    </div>
+    <div class="fazit-card">
+      <div class="fc-icon">🧒</div>
+      <div class="fc-title">Kinder</div>
+      <div class="fc-sub">neugierig ✔ · sind stolz ✔</div>
+    </div>
+  </div>
+  <div class="footer-names">Andreas Schiestl &amp; Michael Konrad &nbsp;·&nbsp; <a href="https://mbs.tsn.at/" target="_blank" style="color:var(--text-muted);text-decoration:underline;">mbs.tsn.at</a></div>
+</div>
+
+</body>
+</html>
